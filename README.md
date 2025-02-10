@@ -1,6 +1,7 @@
 # EC2---MAIN
 
-## Init command
+## Init commands
+docker-compose up --build github
 docker-compose up --build
 
 ## Problem
