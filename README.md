@@ -1,8 +1,8 @@
 # EC2---MAIN
 
 ## Init commands
-docker-compose up --build github
-docker-compose up --build
+- docker-compose up --build github
+- docker-compose up --build
 
 ## Problem
 Implementation of Djikstraa in 5 different programming languages
