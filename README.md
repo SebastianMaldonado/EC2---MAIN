@@ -18,3 +18,6 @@ https://github.com/SebastianMaldonado/ECII.git
 - **java:** implementation of djikstraa in Java
 - **javascript:** implementation of djikstraa in Javascript
 - **collector:** Python code for recopiling all result into a `final_results.txt` file
+
+## Note:
+Results will be located on `ECII/final_results.txt`
