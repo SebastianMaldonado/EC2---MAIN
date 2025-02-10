@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  github:
+    image: docker:dind
+    volumes:
+        - .:/app
+    working_dir: /app
+    command: ["git", "clone", "https://github.com/SebastianMaldonado/ECII.git"]
+
+  python:
+    build: ./ECII/python
+    volumes:
+      - ./ECII/python:/app
+    depends_on:
+      - github
+
+  javascript:
+    build: ./ECII/javascript
+    volumes:
+      - ./ECII/javascript:/app
+    depends_on:
+      - github
+
+  java:
+    build: ./ECII/java
+    volumes:
+      - ./ECII/java:/app
+    depends_on:
+      - github
+
+  c:
+    build: ./ECII/c
+    volumes:
+      - ./ECII/c:/app
+    depends_on:
+      - github
+
+  cpp:
+    build: ./ECII/cpp
+    volumes:
+      - ./ECII/cpp:/app
+    depends_on:
+      - github
+      
+  collector:
+    image: python:3.9-slim
+    volumes:
+      - ./ECII:/app
+    working_dir: /app
+    command: ["python", "resulting_code.py"]
+    depends_on:
+      - python
+      - javascript
+      - java
+      - c
+      - cpp
